@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start a Project | ORBIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --purple: #a98fff;
+      --purple-dark: #6644e8;
+      --text: #f2eeff;
+      --muted: #a09ac0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: #0b0b1a;
+      color: white;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(3,3,10,0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(160,130,255,0.15);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      opacity: 0.92;
+      filter: brightness(1.15);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 120px auto 80px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background: #1a1a2e;
+      color: white;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: none;
+    }
+
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #7b5cff, #a855f7);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 0 15px;
+      }
+      .container {
+        width: 92%;
+        padding: 15px;
+        margin-top: 100px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      input, textarea, button {
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="orbit-logo.jpeg" alt="Orbit"/></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Start Your Project with ORBIT</h1>
+    <p>Tell us what you're building. We'll help you turn it into something powerful.</p>
+
+    <!-- ✅ FORM CONNECTED TO FORMSPREE -->
+    <form action="https://formspree.io/f/mvzvdbqy" method="POST">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      
+      <input type="email" name="email" placeholder="Your Email" required>
+      
+      <input type="text" name="project" placeholder="What do you want to build? (App, Website, etc)">
+      
+      <textarea name="message" placeholder="Describe your idea..."></textarea>
+      
+      <input type="text" name="budget" placeholder="Budget" required>
+
+      <!-- hidden subject -->
+      <input type="hidden" name="_subject" value="New ORBIT Project Request">
+
+      <button type="submit">Launch My Project 🚀</button>
+    </form>
+
+    <div class="note">
+      We usually reply within 24 hours.
+    </div>
+  </div>
+
+</body>
+</html>
