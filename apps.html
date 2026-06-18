@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orbit Apps — Download Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKMC0L4GK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZKMC0L4GK3');
+</script>
+<style>
+:root {
+  --purple:        #a98fff;
+  --purple-dark:   #6644e8;
+  --purple-dim:    rgba(160,130,255,0.12);
+  --purple-border: rgba(170,140,255,0.3);
+  --bg:            #03030a;
+  --surface2:      #0e0e24;
+  --text:          #f2eeff;
+  --muted:         #a09ac0;
+  --faint:         #7870a0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #020208; color: var(--text); overflow-x: hidden; }
+
+#starfield { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.container { width: 88%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(3,3,10,0.7); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(160,130,255,0.15); padding: 14px 0;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 40px; opacity: 0.92; filter: brightness(1.15); }
+.nav-links { display: flex; gap: 34px; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-back {
+  background: none; border: 1px solid rgba(160,130,255,0.3); color: var(--purple);
+  padding: 9px 18px; border-radius: 22px; font-size: 12px;
+  font-weight: 600; font-family: 'DM Sans', sans-serif;
+  cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.nav-back:hover { border-color: var(--purple); background: var(--purple-dim); }
+
+/* PAGE HEADER */
+.page-header {
+  position: relative; padding: 160px 20px 80px; text-align: center; z-index: 2;
+  overflow: hidden;
+}
+.header-glow {
+  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(100,70,255,0.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--purple); padding: 7px 18px; border: 1px solid rgba(160,130,255,0.28);
+  border-radius: 50px; background: rgba(123,94,248,0.07); margin-bottom: 28px;
+}
+.eyebrow-dot { width: 5px; height: 5px; background: var(--purple); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.15;} }
+h1.page-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 68px); font-weight: 900;
+  line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px;
+}
+h1.page-h em { font-style: italic; color: var(--purple); }
+.page-sub { font-size: 16px; color: var(--muted); font-weight: 300; max-width: 460px; margin: 0 auto; line-height: 1.75; }
+
+/* SECTION */
+.apps-section { position: relative; z-index: 2; padding: 20px 0 120px; }
+
+/* APP CARD */
+.app-card {
+  background: rgba(14,12,32,0.85);
+  border: 1px solid var(--purple-border);
+  border-radius: 28px;
+  padding: 48px 52px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.app-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,130,255,0.55), transparent);
+}
+.app-card::after {
+  content: '';
+  position: absolute; bottom: -120px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(100,70,255,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.app-card:hover { border-color: rgba(160,130,255,0.5); transform: translateY(-3px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+
+/* LEFT SIDE */
+.app-left {}
+.app-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.app-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); background: rgba(123,94,248,0.08); border: 1px solid rgba(123,94,248,0.2); padding: 4px 12px; border-radius: 50px; }
+.app-badge-android { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #60d888; background: rgba(80,220,120,0.07); border: 1px solid rgba(80,220,120,0.2); padding: 4px 12px; border-radius: 50px; display: inline-flex; align-items: center; gap: 5px; }
+.app-badge-android i { font-size: 12px; }
+.app-version { font-size: 10px; color: var(--faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 4px 12px; border-radius: 50px; letter-spacing: 0.06em; }
+.app-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 900; letter-spacing: -1.5px;
+  color: var(--text); margin-bottom: 6px; line-height: 1.0;
+}
+.app-name span { color: var(--purple); font-style: italic; }
+.app-tagline { font-size: 14px; color: var(--faint); font-weight: 400; margin-bottom: 20px; letter-spacing: 0.02em; }
+.app-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 520px; margin-bottom: 28px; }
+
+/* FEATURES LIST */
+.app-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.app-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); }
+.feat-dot { width: 18px; height: 18px; border-radius: 50%; background: rgba(123,94,248,0.12); border: 1px solid rgba(123,94,248,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.feat-dot i { font-size: 10px; color: var(--purple); }
+
+/* TECH PILLS */
+.app-tech { display: flex; gap: 6px; flex-wrap: wrap; }
+.tech-pill { font-size: 11px; padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(120,90,255,0.18); color: #9080c0; }
+
+/* RIGHT SIDE */
+.app-right { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+/* PHONE MOCKUP */
+.phone-mockup {
+  width: 180px;
+  height: 320px;
+  background: linear-gradient(160deg, #0d0b20, #160f2e);
+  border-radius: 32px;
+  border: 1.5px solid rgba(160,130,255,0.25);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px rgba(100,70,255,0.04), 0 30px 60px rgba(0,0,0,0.6);
+}
+.phone-mockup::before {
+  content: '';
+  position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+  width: 50px; height: 4px; background: rgba(160,130,255,0.15); border-radius: 4px; z-index: 3;
+}
+.phone-screen {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  background: #06040f;
+  overflow: hidden;
+}
+.phone-stars { position: absolute; inset: 0; }
+.phone-star { position: absolute; border-radius: 50%; background: rgba(200,180,255,0.6); }
+.phone-header { position: relative; z-index: 2; padding: 22px 12px 8px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(160,130,255,0.08); }
+.phone-app-name { font-size: 11px; font-weight: 600; color: var(--text); letter-spacing: 0.06em; }
+.phone-chat { position: relative; z-index: 2; flex: 1; padding: 10px 10px; display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
+.phone-bubble-ai { align-self: flex-start; background: rgba(123,94,248,0.15); border: 1px solid rgba(123,94,248,0.2); border-radius: 10px 10px 10px 3px; padding: 7px 9px; max-width: 78%; }
+.phone-bubble-ai p { font-size: 8px; color: var(--muted); line-height: 1.4; }
+.phone-bubble-user { align-self: flex-end; background: rgba(123,94,248,0.25); border: 1px solid rgba(123,94,248,0.3); border-radius: 10px 10px 3px 10px; padding: 7px 9px; max-width: 70%; }
+.phone-bubble-user p { font-size: 8px; color: var(--text); line-height: 1.4; }
+.phone-input { position: relative; z-index: 2; padding: 8px 10px; border-top: 1px solid rgba(160,130,255,0.08); }
+.phone-input-bar { background: rgba(123,94,248,0.08); border: 1px solid rgba(123,94,248,0.15); border-radius: 12px; padding: 6px 10px; display: flex; align-items: center; justify-content: space-between; }
+.phone-input-bar span { font-size: 7px; color: var(--faint); }
+.phone-send { width: 16px; height: 16px; border-radius: 50%; background: rgba(123,94,248,0.4); display: flex; align-items: center; justify-content: center; }
+.phone-send i { font-size: 8px; color: var(--purple); }
+
+/* DOWNLOAD PANEL */
+.dl-panel { width: 100%; background: rgba(123,94,248,0.04); border: 1px solid rgba(123,94,248,0.15); border-radius: 18px; padding: 22px 20px; }
+.dl-info { display: flex; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+.dl-stat { text-align: center; }
+.dl-stat-val { font-size: 14px; font-weight: 600; color: var(--text); display: block; }
+.dl-stat-label { font-size: 10px; color: var(--faint); letter-spacing: 0.06em; margin-top: 2px; display: block; }
+.dl-divider { height: 1px; background: rgba(160,130,255,0.1); margin-bottom: 14px; }
+.btn-download {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: linear-gradient(135deg, #9b7fff, var(--purple-dark));
+  color: #fff; padding: 14px 20px; border-radius: 14px;
+  font-weight: 600; font-size: 14px; font-family: 'DM Sans', sans-serif;
+  border: none; cursor: pointer; text-decoration: none;
+  box-shadow: 0 5px 24px rgba(100,70,255,0.3);
+  transition: all 0.25s; letter-spacing: 0.02em;
+}
+.btn-download:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(100,70,255,0.45); }
+.btn-download i { font-size: 18px; }
+.dl-note { font-size: 11px; color: var(--faint); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+/* COMING SOON CARD */
+.app-card.coming-soon { opacity: 0.55; }
+.app-card.coming-soon:hover { opacity: 0.7; transform: none; }
+.btn-coming {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: none; border: 1px solid rgba(160,130,255,0.2); color: var(--faint);
+  padding: 14px 20px; border-radius: 14px; font-weight: 600; font-size: 14px;
+  font-family: 'DM Sans', sans-serif; cursor: default; text-decoration: none; letter-spacing: 0.02em;
+}
+
+/* SECTION HEADER */
+.section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
+.section-h { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 38px); font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 40px; }
+.section-h em { color: var(--purple); font-style: italic; }
+
+/* FOOTER */
+footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 50px 0 40px; text-align: center; }
+.footer-logo img { height: 40px; opacity: 0.8; filter: brightness(1.2); margin-bottom: 20px; }
+.footer-divider { width: 50px; height: 1px; background: linear-gradient(90deg, transparent, rgba(160,130,255,0.35), transparent); margin: 0 auto 20px; }
+.footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+.footer-links { display: flex; gap: 28px; justify-content: center; list-style: none; margin-bottom: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 900px) {
+  .app-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 36px; }
+  .app-right { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .phone-mockup { width: 140px; height: 250px; }
+  .dl-panel { max-width: 300px; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .container { width: 92%; }
+  .app-card { padding: 28px 20px; }
+  .app-right { flex-direction: column; align-items: center; }
+  .dl-panel { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html"><img src="orbit-logo.jpeg" alt="Orbit"/></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Products</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="nav-back" href="index.html"><i class="ri-arrow-left-line"></i> Back to Orbit</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="header-glow"></div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span>Orbit Apps — Android</div>
+  <h1 class="page-h">Download <em>Orbit Apps.</em></h1>
+  <p class="page-sub">Native Android apps built by Orbit Studio. Free to download. No sign-up required.</p>
+</div>
+
+<!-- APPS -->
+<section class="apps-section">
+  <div class="container">
+
+    <!-- ORBIT AI -->
+    <div class="app-card" id="orbit-ai">
+      <div class="app-left">
+        <div class="app-meta">
+          <span class="app-tag">AI Assistant</span>
+          <span class="app-badge-android"><i class="ri-android-line"></i> Android</span>
+          <span class="app-version">v1.0.0</span>
+        </div>
+        <div class="app-name">Orbit <span>AI</span></div>
+        <div class="app-tagline">Your AI companion — powered by Gemini 2.5 Flash</div>
+        <p class="app-desc">
+          A sleek Android AI chat app with a stunning dark starfield interface. Chat with ORBIT — a custom AI persona built by Anshuman Panda at Orbit Studio. Supports multi-conversation history, image attachments, and vision analysis. No account needed.
+        </p>
+        <ul class="app-features">
+          <li><div class="feat-dot"><i class="ri-sparkling-line"></i></div>Powered by Gemini 2.5 Flash Lite — fast & intelligent</li>
+          <li><div class="feat-dot"><i class="ri-message-3-line"></i></div>Multi-conversation sidebar — switch chats instantly</li>
+          <li><div class="feat-dot"><i class="ri-image-line"></i></div>Image attachment + vision analysis support</li>
+          <li><div class="feat-dot"><i class="ri-moon-line"></i></div>Animated starfield dark UI — beautiful by default</li>
+          <li><div class="feat-dot"><i class="ri-flashlight-line"></i></div>No sign-up, no subscription — completely free</li>
+        </ul>
+        <div class="app-tech">
+          <span class="tech-pill">Flutter</span>
+          <span class="tech-pill">Dart</span>
+          <span class="tech-pill">Gemini API</span>
+          <span class="tech-pill">Android</span>
+        </div>
+      </div>
+
+      <div class="app-right">
+        <!-- PHONE MOCKUP -->
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-stars" id="phoneStars"></div>
+            <div class="phone-header">
+              <span class="phone-app-name">✦ ORBIT AI</span>
+            </div>
+            <div class="phone-chat">
+              <div class="phone-bubble-ai"><p>Hey! I'm ORBIT — your AI assistant. What can I help you with today?</p></div>
+              <div class="phone-bubble-user"><p>Explain black holes simply</p></div>
+              <div class="phone-bubble-ai"><p>Black holes are regions where gravity is so strong that nothing — not even light — can escape once it crosses the event horizon...</p></div>
+            </div>
+            <div class="phone-input">
+              <div class="phone-input-bar">
+                <span>Ask anything...</span>
+                <div class="phone-send"><i class="ri-send-plane-fill"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOWNLOAD PANEL -->
+        <div class="dl-panel">
+          <div class="dl-info">
+            <div class="dl-stat">
+              <span class="dl-stat-val">48.3 MB</span>
+              <span class="dl-stat-label">File Size</span>
+            </div>
+            <div class="dl-stat">
+              <span class="dl-stat-val">v1.0.0</span>
+              <span class="dl-stat-label">Version</span>
+            </div>
+            <div class="dl-stat">
+              <span class="dl-stat-val">Android 6+</span>
+              <span class="dl-stat-label">Requires</span>
+            </div>
+          </div>
+          <div class="dl-divider"></div>
+          <a href="https://github.com/Anshuman615/orbit-releases/releases/download/v1.0.0/app-release.apk" class="btn-download" target="_blank" rel="noopener noreferrer">
+            <i class="ri-download-2-line"></i> Download APK
+          </a>
+          <p class="dl-note">⚠ Enable "Install unknown apps" in Android settings before installing. This is a direct APK — not from Play Store.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER: MORE APPS COMING -->
+    <div style="text-align:center; padding: 48px 20px; border: 1px dashed rgba(160,130,255,0.15); border-radius: 24px; background: rgba(14,12,32,0.3);">
+      <div style="font-size:32px; color:rgba(160,130,255,0.2); margin-bottom:14px;"><i class="ri-rocket-line"></i></div>
+      <p style="font-size:14px; color:var(--faint); font-weight:300;">More Orbit apps dropping soon.</p>
+      <p style="font-size:12px; color:rgba(120,100,180,0.4); margin-top:6px; letter-spacing:0.04em;">ORBIT STUDIO — 2026</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo"><img src="orbit-logo.jpeg" alt="Orbit"/></div>
+    <div class="footer-divider"></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Products</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Orbit Studio — Built by Anshuman Panda</p>
+  </div>
+</footer>
+
+<script>
+var canvas = document.getElementById('starfield');
+var ctx = canvas.getContext('2d');
+var W, H, stars = [];
+function init() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  stars = [];
+  for (var i = 0; i < 350; i++) {
+    stars.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.6+0.2, speed: Math.random()*0.15+0.03, opacity: Math.random()*0.7+0.15, tw: Math.random()*Math.PI*2 });
+  }
+}
+function draw() {
+  ctx.clearRect(0,0,W,H);
+  var t = Date.now()*0.001;
+  for(var i=0;i<stars.length;i++){
+    var s=stars[i];
+    var alpha=s.opacity*(0.7+0.3*Math.sin(t*1.1+s.tw));
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(200,180,255,'+alpha+')'; ctx.fill();
+    s.y+=s.speed; if(s.y>H){s.y=0;s.x=Math.random()*W;}
+  }
+  requestAnimationFrame(draw);
+}
+init(); draw();
+window.addEventListener('resize', init);
+
+// Phone mini starfield
+var phoneStarsEl = document.getElementById('phoneStars');
+for(var i=0;i<40;i++){
+  var dot=document.createElement('div');
+  dot.className='phone-star';
+  var size=Math.random()*1.5+0.5;
+  dot.style.cssText='width:'+size+'px;height:'+size+'px;top:'+Math.random()*100+'%;left:'+Math.random()*100+'%;opacity:'+(Math.random()*0.5+0.1)+';';
+  phoneStarsEl.appendChild(dot);
+}
+
+// Scroll animations
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.app-card').forEach(function(el){
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease, transform 0.7s ease, border-color 0.25s, box-shadow 0.25s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
