@@ -7,15 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKMC0L4GK3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZKMC0L4GK3');
-</script>
 <style>
 :root {
   --purple:        #a98fff;
@@ -251,6 +242,7 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Work</a></li>
+      <li><a href="#apps">Apps</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="nav-cta" href="#contact">Start a Project</a>
@@ -442,16 +434,28 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
       </div>
       <div class="p-card">
         <div class="p-card-top">
-          <div class="p-tag">SaaS</div>
-          <div class="p-status soon">Launching Soon</div>
+          <div class="p-tag">AI Chat</div>
+          <div class="p-status live">Live</div>
         </div>
-        <div class="p-name">Criko</div>
-        <div class="p-desc">Cricket fan engagement platform — live scores, match predictions, leaderboards, and a curated news feed.</div>
+        <div class="p-name">Orbit AI</div>
+        <div class="p-desc">An AI-powered chat app with a stunning space-themed UI — dark starfield, markdown rendering, image upload, and persistent chat history. </div>
         <div class="p-footer">
-          <div class="p-pills"><span class="p-pill">Supabase</span><span class="p-pill">React</span><span class="p-pill">Sports API</span></div>
-          <a href="#" class="p-cta" style="opacity:0.5;cursor:default;">Coming Soon</a>
+          <div class="p-pills"><span class="p-pill">Gemini API</span><span class="p-pill">Vercel</span><span class="p-pill">JavaScript</span></div>
+          <a href="https://orbit-ai-plum.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-cta">Visit Site →</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="container" style="text-align:center;">
+    <div class="section-tag">Orbit Apps</div>
+    <h2 class="section-h">Download native <em>apps.</em></h2>
+    <p class="section-sub">Access official apps built by Orbit Studio. Free to download. No sign-up required.</p>
+    <div style="margin-top: 50px;">
+      <a href="apps.html" class="btn-main"><i class="ri-download-2-line"></i> Download Apps</a>
     </div>
   </div>
 </section>
@@ -478,6 +482,7 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
       <li><a href="#why">Why Orbit</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Work</a></li>
+      <li><a href="#apps">Apps</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="footer-socials">
@@ -539,7 +544,7 @@ var observer = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.s-card, .p-card, .why-card, .founder-card').forEach(function(el) {
+document.querySelectorAll('.s-card, .p-card, .why-card, .founder-card, .app-directory-card').forEach(function(el) {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
