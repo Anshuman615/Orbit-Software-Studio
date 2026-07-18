@@ -53,10 +53,7 @@ nav {
 .nav-back:hover { border-color: var(--purple); background: var(--purple-dim); }
 
 /* PAGE HEADER */
-.page-header {
-  position: relative; padding: 160px 20px 80px; text-align: center; z-index: 2;
-  overflow: hidden;
-}
+.page-header { position: relative; padding: 160px 20px 80px; text-align: center; z-index: 2; overflow: hidden; }
 .header-glow {
   position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 500px;
@@ -120,18 +117,12 @@ h1.page-h em { font-style: italic; color: var(--purple); }
 .app-card[data-accent="red"] .tech-pill { color: #d0a0a0; border-color: rgba(255,110,100,0.18); }
 
 /* LEFT SIDE */
-.app-left {}
 .app-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
 .app-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); background: rgba(123,94,248,0.08); border: 1px solid rgba(123,94,248,0.2); padding: 4px 12px; border-radius: 50px; }
 .app-badge-android { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #60d888; background: rgba(80,220,120,0.07); border: 1px solid rgba(80,220,120,0.2); padding: 4px 12px; border-radius: 50px; display: inline-flex; align-items: center; gap: 5px; }
 .app-badge-android i { font-size: 12px; }
 .app-version { font-size: 10px; color: var(--faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 4px 12px; border-radius: 50px; letter-spacing: 0.06em; }
-.app-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 900; letter-spacing: -1.5px;
-  color: var(--text); margin-bottom: 6px; line-height: 1.0;
-}
+.app-name { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: var(--text); margin-bottom: 6px; line-height: 1.0; }
 .app-name span { color: var(--purple); font-style: italic; }
 .app-tagline { font-size: 14px; color: var(--faint); font-weight: 400; margin-bottom: 20px; letter-spacing: 0.02em; }
 .app-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 520px; margin-bottom: 28px; }
@@ -151,32 +142,23 @@ h1.page-h em { font-style: italic; color: var(--purple); }
 
 /* PHONE MOCKUP */
 .phone-mockup {
-  width: 180px;
-  height: 320px;
+  width: 180px; height: 320px;
   background: linear-gradient(160deg, #0d0b20, #160f2e);
   border-radius: 32px;
   border: 1.5px solid rgba(160,130,255,0.25);
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
+  position: relative; overflow: hidden; flex-shrink: 0;
   box-shadow: 0 0 0 6px rgba(100,70,255,0.04), 0 30px 60px rgba(0,0,0,0.6);
 }
 .phone-mockup::before {
-  content: '';
-  position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+  content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
   width: 50px; height: 4px; background: rgba(160,130,255,0.15); border-radius: 4px; z-index: 3;
 }
-.phone-screen {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  background: #06040f;
-  overflow: hidden;
-}
+.phone-screen { position: absolute; inset: 0; display: flex; flex-direction: column; background: #06040f; overflow: hidden; }
 .phone-stars { position: absolute; inset: 0; }
 .phone-star { position: absolute; border-radius: 50%; background: rgba(200,180,255,0.6); }
 .phone-header { position: relative; z-index: 2; padding: 22px 12px 8px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(160,130,255,0.08); }
 .phone-app-name { font-size: 11px; font-weight: 600; color: var(--text); letter-spacing: 0.06em; }
-.phone-chat { position: relative; z-index: 2; flex: 1; padding: 10px 10px; display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
+.phone-chat { position: relative; z-index: 2; flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
 .phone-bubble-ai { align-self: flex-start; background: rgba(123,94,248,0.15); border: 1px solid rgba(123,94,248,0.2); border-radius: 10px 10px 10px 3px; padding: 7px 9px; max-width: 78%; }
 .phone-bubble-ai p { font-size: 8px; color: var(--muted); line-height: 1.4; }
 .phone-bubble-user { align-self: flex-end; background: rgba(123,94,248,0.25); border: 1px solid rgba(123,94,248,0.3); border-radius: 10px 10px 3px 10px; padding: 7px 9px; max-width: 70%; }
@@ -218,15 +200,49 @@ h1.page-h em { font-style: italic; color: var(--purple); }
 .btn-download i { font-size: 18px; }
 .dl-note { font-size: 11px; color: var(--faint); text-align: center; margin-top: 10px; line-height: 1.5; }
 
-/* COMING SOON CARD */
-.app-card.coming-soon { opacity: 0.55; }
-.app-card.coming-soon:hover { opacity: 0.7; transform: none; }
-.btn-coming {
-  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: none; border: 1px solid rgba(160,130,255,0.2); color: var(--faint);
-  padding: 14px 20px; border-radius: 14px; font-weight: 600; font-size: 14px;
-  font-family: 'DM Sans', sans-serif; cursor: default; text-decoration: none; letter-spacing: 0.02em;
+/* WHATS NEW BANNER */
+.whats-new {
+  background: rgba(14,12,32,0.85);
+  border: 1px solid var(--purple-border);
+  border-radius: 28px;
+  padding: 40px 52px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
 }
+.whats-new::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,130,255,0.55), transparent);
+}
+.whats-new::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -60px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(100,70,255,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.whats-new-header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+.whats-new-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--purple); background: rgba(123,94,248,0.1); border: 1px solid rgba(123,94,248,0.25);
+  padding: 5px 14px; border-radius: 50px;
+}
+.whats-new-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: -0.8px; color: var(--text); }
+.whats-new-title em { color: var(--purple); font-style: italic; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; z-index: 1; }
+.feature-item {
+  background: rgba(123,94,248,0.05);
+  border: 1px solid rgba(123,94,248,0.12);
+  border-radius: 16px;
+  padding: 20px 18px;
+  transition: all 0.25s;
+}
+.feature-item:hover { border-color: rgba(160,130,255,0.3); transform: translateY(-2px); }
+.feature-icon { font-size: 22px; margin-bottom: 10px; }
+.feature-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.feature-desc { font-size: 12px; color: var(--faint); line-height: 1.55; }
 
 /* SECTION HEADER */
 .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
@@ -247,6 +263,8 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
   .app-right { flex-direction: row; justify-content: center; flex-wrap: wrap; }
   .phone-mockup { width: 140px; height: 250px; }
   .dl-panel { max-width: 300px; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .whats-new { padding: 32px 28px; }
 }
 @media (max-width: 600px) {
   .nav-links { display: none; }
@@ -254,6 +272,8 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
   .app-card { padding: 28px 20px; }
   .app-right { flex-direction: column; align-items: center; }
   .dl-panel { max-width: 100%; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .whats-new { padding: 24px 18px; }
 }
 </style>
 </head>
@@ -286,30 +306,31 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
 <section class="apps-section">
   <div class="container">
 
-    <!-- ORBIT AI -->
+    <!-- ORBIT AI v2 -->
     <div class="app-card" id="orbit-ai">
       <div class="app-left">
         <div class="app-meta">
           <span class="app-tag">AI Assistant</span>
           <span class="app-badge-android"><i class="ri-android-line"></i> Android</span>
-          <span class="app-version">v1.0.0</span>
+          <span class="app-version">v2.0.0</span>
         </div>
         <div class="app-name">Orbit <span>AI</span></div>
         <div class="app-tagline">Your AI companion — powered by Gemini 2.5 Flash</div>
         <p class="app-desc">
-          A sleek Android AI chat app with a stunning dark starfield interface. Chat with ORBIT — a custom AI persona built by Anshuman Panda at Orbit Studio. Supports multi-conversation history, image attachments, and vision analysis. No account needed.
+          A sleek Android AI chat app with a stunning dark starfield interface. Chat with ORBIT — a custom AI persona built by Anshuman Panda at Orbit Studio. Now with voice automation, smart routing, and personalized profile memory.
         </p>
         <ul class="app-features">
-          <li><div class="feat-dot"><i class="ri-sparkling-line"></i></div>Powered by Gemini 2.5 Flash Lite — fast & intelligent</li>
-          <li><div class="feat-dot"><i class="ri-message-3-line"></i></div>Multi-conversation sidebar — switch chats instantly</li>
-          <li><div class="feat-dot"><i class="ri-image-line"></i></div>Image attachment + vision analysis support</li>
+          <li><div class="feat-dot"><i class="ri-sparkling-line"></i></div>Smart AI routing — Wikipedia, local & Gemini automatically</li>
+          <li><div class="feat-dot"><i class="ri-mic-line"></i></div>Voice automation — control your phone hands-free</li>
+          <li><div class="feat-dot"><i class="ri-message-3-line"></i></div>Cloud-synced chat history across devices</li>
+          <li><div class="feat-dot"><i class="ri-user-line"></i></div>Personalized profile — ORBIT remembers you</li>
           <li><div class="feat-dot"><i class="ri-moon-line"></i></div>Animated starfield dark UI — beautiful by default</li>
-          <li><div class="feat-dot"><i class="ri-flashlight-line"></i></div>No sign-up, no subscription — completely free</li>
         </ul>
         <div class="app-tech">
           <span class="tech-pill">Flutter</span>
           <span class="tech-pill">Dart</span>
           <span class="tech-pill">Gemini API</span>
+          <span class="tech-pill">Firebase</span>
           <span class="tech-pill">Android</span>
         </div>
       </div>
@@ -320,16 +341,16 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
           <div class="phone-screen">
             <div class="phone-stars" id="phoneStars"></div>
             <div class="phone-header">
-              <span class="phone-app-name">✦ ORBIT AI</span>
+              <span class="phone-app-name">ORBIT AI</span>
             </div>
             <div class="phone-chat">
               <div class="phone-bubble-ai"><p>Hey! I'm ORBIT — your AI assistant. What can I help you with today?</p></div>
-              <div class="phone-bubble-user"><p>Explain black holes simply</p></div>
-              <div class="phone-bubble-ai"><p>Black holes are regions where gravity is so strong that nothing — not even light — can escape once it crosses the event horizon...</p></div>
+              <div class="phone-bubble-user"><p>Open YouTube and play lofi</p></div>
+              <div class="phone-bubble-ai"><p>Opening YouTube and searching for lofi music...</p></div>
             </div>
             <div class="phone-input">
               <div class="phone-input-bar">
-                <span>Ask anything...</span>
+                <span>Message ORBIT...</span>
                 <div class="phone-send"><i class="ri-send-plane-fill"></i></div>
               </div>
             </div>
@@ -340,11 +361,11 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
         <div class="dl-panel">
           <div class="dl-info">
             <div class="dl-stat">
-              <span class="dl-stat-val">48.3 MB</span>
+              <span class="dl-stat-val">~55 MB</span>
               <span class="dl-stat-label">File Size</span>
             </div>
             <div class="dl-stat">
-              <span class="dl-stat-val">v1.0.0</span>
+              <span class="dl-stat-val">v2.0.0</span>
               <span class="dl-stat-label">Version</span>
             </div>
             <div class="dl-stat">
@@ -353,10 +374,83 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
             </div>
           </div>
           <div class="dl-divider"></div>
-          <a href="https://github.com/Anshuman615/orbit-releases/releases/download/v1.0.0/app-release.apk" class="btn-download" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Anshuman615/orbit-releases/releases/latest/download/app-release.apk" class="btn-download" target="_blank" rel="noopener noreferrer">
             <i class="ri-download-2-line"></i> Download APK
           </a>
           <p class="dl-note">⚠ Enable "Install unknown apps" in Android settings before installing. This is a direct APK — not from Play Store.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHATS NEW IN V2 -->
+    <div class="whats-new">
+      <div class="whats-new-header">
+        <span class="whats-new-badge">v2.0.0</span>
+        <div class="whats-new-title">What's new in Orbit <em>AI.</em></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🧠</div>
+          <div class="feature-name">Smart AI Routing</div>
+          <div class="feature-desc">Automatically chooses Local AI, Wikipedia or Gemini based on your query.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📞</div>
+          <div class="feature-name">Contact Calling</div>
+          <div class="feature-desc">Call contacts using natural voice commands — "Call Mom".</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📱</div>
+          <div class="feature-name">Open Any App</div>
+          <div class="feature-desc">Launch any installed app by simply speaking its name.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🗣️</div>
+          <div class="feature-name">Voice Automation</div>
+          <div class="feature-desc">Control your phone completely hands-free with Hey ORBIT.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">👤</div>
+          <div class="feature-name">Personalized Profile</div>
+          <div class="feature-desc">ORBIT remembers your name, interests and preferences.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-name">Faster Responses</div>
+          <div class="feature-desc">Reduced Gemini usage with intelligent routing saves quota.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 LEGACY -->
+    <div class="app-card" style="opacity:0.5;" id="orbit-ai-v1">
+      <div class="app-left">
+        <div class="app-meta">
+          <span class="app-tag">AI Assistant</span>
+          <span class="app-badge-android"><i class="ri-android-line"></i> Android</span>
+          <span class="app-version">v1.0.0 — Legacy</span>
+        </div>
+        <div class="app-name">Orbit <span>AI</span></div>
+        <div class="app-tagline">Original release — basic chat with Gemini</div>
+        <p class="app-desc">The original Orbit AI — dark starfield UI, multi-conversation sidebar, image attachments and vision support. Superseded by v2.0.0.</p>
+        <div class="app-tech">
+          <span class="tech-pill">Flutter</span>
+          <span class="tech-pill">Gemini API</span>
+          <span class="tech-pill">Android</span>
+        </div>
+      </div>
+      <div class="app-right">
+        <div class="dl-panel">
+          <div class="dl-info">
+            <div class="dl-stat"><span class="dl-stat-val">48.3 MB</span><span class="dl-stat-label">File Size</span></div>
+            <div class="dl-stat"><span class="dl-stat-val">v1.0.0</span><span class="dl-stat-label">Version</span></div>
+            <div class="dl-stat"><span class="dl-stat-val">Android 6+</span><span class="dl-stat-label">Requires</span></div>
+          </div>
+          <div class="dl-divider"></div>
+          <a href="https://github.com/Anshuman615/orbit-releases/releases/download/v1.0.0/app-release.apk" class="btn-download" style="background: rgba(123,94,248,0.15); box-shadow: none;" target="_blank" rel="noopener noreferrer">
+            <i class="ri-download-2-line"></i> Download v1.0.0
+          </a>
+          <p class="dl-note">Legacy version. We recommend downloading v2.0.0 above.</p>
         </div>
       </div>
     </div>
@@ -432,7 +526,7 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
       </div>
     </div>
 
-    <!-- PLACEHOLDER: MORE APPS COMING -->
+    <!-- MORE COMING -->
     <div style="text-align:center; padding: 48px 20px; border: 1px dashed rgba(160,130,255,0.15); border-radius: 24px; background: rgba(14,12,32,0.3);">
       <div style="font-size:32px; color:rgba(160,130,255,0.2); margin-bottom:14px;"><i class="ri-rocket-line"></i></div>
       <p style="font-size:14px; color:var(--faint); font-weight:300;">More Orbit apps dropping soon.</p>
@@ -483,7 +577,7 @@ function draw() {
 init(); draw();
 window.addEventListener('resize', init);
 
-// Phone mini starfield (Orbit AI card only)
+// Phone mini starfield
 var phoneStarsEl = document.getElementById('phoneStars');
 for(var i=0;i<40;i++){
   var dot=document.createElement('div');
@@ -502,6 +596,11 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.app-card').forEach(function(el){
   el.style.opacity='0'; el.style.transform='translateY(24px)';
   el.style.transition='opacity 0.7s ease, transform 0.7s ease, border-color 0.25s, box-shadow 0.25s';
+  observer.observe(el);
+});
+document.querySelectorAll('.whats-new').forEach(function(el){
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease, transform 0.7s ease';
   observer.observe(el);
 });
 </script>
