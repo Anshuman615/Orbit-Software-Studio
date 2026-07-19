@@ -226,25 +226,35 @@ section { position: relative; z-index: 2; padding: 100px 0; }
 .contact-email { margin-top: 16px; font-size: 13px; color: var(--faint); letter-spacing: 0.04em; }
 
 /* FOOTER */
-footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 50px 0 40px; text-align: center; }
-.footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-.footer-logo img { height: 40px; opacity: 0.8; filter: brightness(1.2); }
-.footer-logo .astrivo-mark { height: 30px; opacity: 0.8; filter: brightness(1.2); }
-.footer-logo-divider { width: 1px; height: 24px; background: rgba(160,130,255,0.2); }
-.footer-tagline { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 30px; }
-.footer-divider { width: 50px; height: 1px; background: linear-gradient(90deg, transparent, rgba(160,130,255,0.35), transparent); margin: 0 auto 20px; }
-.footer-columns { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 30px; text-align: left; }
-.footer-col-title { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; }
-.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+footer { position: relative; z-index: 2; background: rgba(2,2,8,0.35); padding: 70px 0 30px; }
+.footer-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 50px; text-align: left;
+  padding-bottom: 44px; border-bottom: 1px solid rgba(160,130,255,0.12);
+}
+.footer-brand { flex: 1 1 260px; max-width: 320px; }
+.footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.footer-logo img { height: 36px; opacity: 0.85; filter: brightness(1.2); }
+.footer-logo .astrivo-mark { height: 26px; opacity: 0.85; filter: brightness(1.2); }
+.footer-logo-divider { width: 1px; height: 22px; background: rgba(160,130,255,0.25); }
+.footer-tagline { font-size: 13px; color: var(--muted); letter-spacing: 0.02em; line-height: 1.6; margin-bottom: 22px; max-width: 260px; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-socials a { width: 36px; height: 36px; border: 1px solid rgba(160,130,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 15px; text-decoration: none; transition: all 0.2s; }
+.footer-socials a:hover { border-color: var(--purple); color: var(--purple); background: var(--purple-dim); transform: translateY(-2px); }
+.footer-columns { display: flex; gap: 56px; flex-wrap: wrap; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 18px; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col-links a { position: relative; font-size: 13.5px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .footer-col-links a:hover { color: var(--text); }
-.footer-links { display: flex; gap: 28px; justify-content: center; list-style: none; margin-bottom: 24px; flex-wrap: wrap; }
-.footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-.footer-links a:hover { color: var(--text); }
-.footer-socials { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; }
-.footer-socials a { width: 38px; height: 38px; border: 1px solid rgba(160,130,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 16px; text-decoration: none; transition: all 0.2s; }
-.footer-socials a:hover { border-color: var(--purple); color: var(--purple); }
-.footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+.footer-col-links a::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px; background: var(--purple); transition: width 0.2s; }
+.footer-col-links a:hover::after { width: 100%; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 14px; padding-top: 26px; text-align: left;
+}
+.footer-copy { font-size: 11.5px; color: var(--faint); letter-spacing: 0.04em; }
+.footer-madeby { font-size: 11.5px; color: var(--faint); letter-spacing: 0.04em; }
+.footer-madeby span { color: var(--purple); }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -256,7 +266,13 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
   .projects-grid { grid-template-columns: 1fr; }
   .container { width: 92%; }
   section { padding: 70px 0; }
-  .footer-columns { gap: 40px; justify-content: flex-start; text-align: left; }
+  .footer-top { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+  .footer-brand { max-width: 100%; align-items: center; }
+  .footer-logo { justify-content: center; }
+  .footer-socials { justify-content: center; }
+  .footer-columns { justify-content: center; gap: 40px; text-align: center; }
+  .footer-col-links { align-items: center; }
+  .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
 }
 </style>
 </head>
@@ -338,9 +354,9 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
 <nav>
   <div class="container nav-inner">
     <a class="nav-logo" href="#">
-      <img src="orbit-logo.jpeg" alt="Orbit"/>
-      <span class="nav-logo-divider"></span>
       <img class="astrivo-mark" src="astrivo-logo.png" alt="Astrivo"/>
+      <span class="nav-logo-divider"></span>
+      <img src="orbit-logo.jpeg" alt="Orbit"/>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -627,46 +643,53 @@ footer { position: relative; z-index: 2; background: rgba(2,2,8,0.3); padding: 5
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-logo">
-      <img src="orbit-logo.jpeg" alt="Orbit"/>
-      <span class="footer-logo-divider"></span>
-      <img class="astrivo-mark" src="astrivo-logo.png" alt="Astrivo"/>
-    </div>
-    <p class="footer-tagline">Building products for millions.</p>
-    <div class="footer-divider"></div>
-    <div class="footer-columns">
-      <div>
-        <div class="footer-col-title">Products</div>
-        <ul class="footer-col-links">
-          <li><a href="https://orbit-ai-plum.vercel.app/" target="_blank" rel="noopener noreferrer">Orbit AI</a></li>
-          <li><a href="#products">VAANI</a></li>
-          <li><a href="https://quizorbit.netlify.app/" target="_blank" rel="noopener noreferrer">QuizOrbit</a></li>
-          <li><a href="#products">Feel Safe</a></li>
-        </ul>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="astrivo-mark" src="astrivo-logo.png" alt="Astrivo"/>
+          <span class="footer-logo-divider"></span>
+          <img src="orbit-logo.jpeg" alt="Orbit"/>
+        </div>
+        <p class="footer-tagline">Building products for millions.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/Anshuman615" target="_blank"><svg class="icon-svg icon-fill"><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/anshumanpanda156/" target="_blank"><svg class="icon-svg icon-fill"><use href="#icon-linkedin"></use></svg></a>
+          <a href="mailto:anshumanpanda744@gmail.com"><svg class="icon-svg"><use href="#icon-mail"></use></svg></a>
+        </div>
       </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <ul class="footer-col-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <div class="footer-col-title">Products</div>
+          <ul class="footer-col-links">
+            <li><a href="https://orbit-ai-plum.vercel.app/" target="_blank" rel="noopener noreferrer">Orbit AI</a></li>
+            <li><a href="#products">VAANI</a></li>
+            <li><a href="https://quizorbit.netlify.app/" target="_blank" rel="noopener noreferrer">QuizOrbit</a></li>
+            <li><a href="#products">Feel Safe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-col-links">
+            <li><a href="#why">Why Orbit</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#apps">Apps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-col-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#why">Why Orbit</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="footer-socials">
-      <a href="https://github.com/Anshuman615" target="_blank"><svg class="icon-svg icon-fill"><use href="#icon-github"></use></svg></a>
-      <a href="https://www.linkedin.com/in/anshumanpanda156/" target="_blank"><svg class="icon-svg icon-fill"><use href="#icon-linkedin"></use></svg></a>
-      <a href="mailto:anshumanpanda744@gmail.com"><svg class="icon-svg"><use href="#icon-mail"></use></svg></a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Astrivo — All rights reserved</p>
+      <p class="footer-madeby">Founded by <span>Anshuman Panda</span></p>
     </div>
-    <p class="footer-copy">© 2026 Astrivo — All rights reserved · Founded by Anshuman Panda</p>
   </div>
 </footer>
 
