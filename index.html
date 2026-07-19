@@ -29,24 +29,82 @@ body { font-family: 'DM Sans', sans-serif; background: #020208; color: var(--tex
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(3,3,10,0.7); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(160,130,255,0.15); padding: 14px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(3,3,10,0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(160,130,255,0.15);
+  padding: 14px 0;
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { display: flex; align-items: center; gap: 10px; }
-.nav-logo img { height: 40px; opacity: 0.92; filter: brightness(1.15); }
-.nav-logo .astrivo-mark { height: 28px; opacity: 0.92; filter: brightness(1.15); }
-.nav-logo-divider { width: 1px; height: 22px; background: rgba(160,130,255,0.25); }
-.nav-links { display: flex; gap: 34px; list-style: none; }
-.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-.nav-links a:hover { color: var(--text); }
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Orbit Logo */
+.nav-logo img {
+  height: 40px;
+  opacity: 1;
+  filter: none;
+  border-radius: 6px;
+}
+
+/* Astrivo Logo */
+.nav-logo .astrivo-mark {
+  height: 32px;
+  opacity: 1;
+  filter: none;
+  border-radius: 6px;
+}
+
+.nav-logo-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(160,130,255,0.25);
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
 .nav-cta {
   background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-  color: #fff; padding: 9px 18px; border-radius: 22px; font-size: 12px;
-  font-weight: 600; font-family: 'DM Sans', sans-serif; border: none;
-  cursor: pointer; box-shadow: 0 4px 14px rgba(100,70,255,0.25);
-  transition: all 0.25s; text-decoration: none;
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 22px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(100,70,255,0.25);
+  transition: all 0.25s;
+  text-decoration: none;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(100,70,255,0.4); }
 
